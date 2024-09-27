@@ -1,19 +1,17 @@
-def find_equilibrium_position(N, A):
-    total_sum = sum(A)  
-    left_sum = 0  
-
-    for i in range(N):
-        right_sum = total_sum - left_sum - A[i]
-        
-        if left_sum == right_sum:
-            return i + 1  
-
-        left_sum += A[i]
-
-    return "NOT FOUND"
+def encode_number(N):
+    str_N = str(N)
+    encoded_str = ""
+    
+    for digit in str_N:
+        squared_digit = int(digit) ** 2  # Square the digit
+        encoded_str += str(squared_digit)  
+    
+    encoded_value = int(encoded_str)
+    
+    return encoded_value
 
 # Input reading
 N = int(input())
-A = list(map(int, input().split()))
-result = find_equilibrium_position(N, A)
+
+result = encode_number(N)
 print(result)
